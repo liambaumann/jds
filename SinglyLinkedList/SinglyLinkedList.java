@@ -19,27 +19,27 @@ public class SinglyLinkedList<T> {
     }
 
     public void addLast(T t) {
-        if(head == null) {
-            head = new Node<>(t,null);
+        if (head == null) {
+            head = new Node<>(t, null);
             size++;
             return;
         }
         //if this.head exists already:
         Node<T> current = head;
-        while(current.getNext() != null) {
+        while (current.getNext() != null) {
             current = current.getNext();
         }
-        current.setNext(new Node<>(t,null));
+        current.setNext(new Node<>(t, null));
         size++;
     }
 
     public boolean delete(T t) {
-        if(head == null) {
+        if (head == null) {
             return false;
         }
 
         //Check if head is to be deleted
-        if(head.getData().equals(t)) {
+        if (head.getData().equals(t)) {
             head = head.getNext();
             size--;
             return true;
@@ -47,8 +47,8 @@ public class SinglyLinkedList<T> {
 
         //any other element to be deleted:
         Node<T> current = head;
-        while(current.getNext() != null) {
-            if(current.getNext().getData().equals(t)) {
+        while (current.getNext() != null) {
+            if (current.getNext().getData().equals(t)) {
                 current.setNext(current.getNext().getNext());
                 size--;
                 return true;
@@ -60,23 +60,23 @@ public class SinglyLinkedList<T> {
 
     public T get(int index) {
         //if head==null or index out of bounds
-        if(this.head == null || index >= size || index < 0) {
+        if (this.head == null || index >= size || index < 0) {
             return null;
         }
 
         Node<T> current = head;
-        for(int i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             current = current.getNext();
         }
         return current.getData();
     }
 
     public String toString() {
-        if (this.head == null) {
+        if (head == null) {
             return "[]";
         }
         String s = "[";
-        Node<T> current = this.head;
+        Node<T> current = head;
         while (current != null) {
             s += current.getData();
             if (current.getNext() != null) {
@@ -84,7 +84,7 @@ public class SinglyLinkedList<T> {
             }
             current = current.getNext();
         }
-        return s+"]";
+        return s + "]";
     }
 
     public int getSize() {

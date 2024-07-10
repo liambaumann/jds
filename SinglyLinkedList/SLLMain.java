@@ -1,4 +1,4 @@
-public class Main {
+public class SLLMain {
     public static void main(String[] args) {
         SinglyLinkedList<Integer> l = new SinglyLinkedList<>();
         l.addFirst(1);
