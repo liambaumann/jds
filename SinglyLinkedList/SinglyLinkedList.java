@@ -58,6 +58,19 @@ public class SinglyLinkedList<T> {
         return false;
     }
 
+    public T get(int index) {
+        //if head==null or index out of bounds
+        if(this.head == null || index >= size || index < 0) {
+            return null;
+        }
+
+        Node<T> current = head;
+        for(int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+        return current.getData();
+    }
+
     public String toString() {
         if (this.head == null) {
             return "[]";

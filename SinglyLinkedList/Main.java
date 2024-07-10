@@ -11,5 +11,6 @@ public class Main {
         l.delete(99);
         System.out.println(l);
         System.out.println(l.getSize());
+        System.out.println(l.get(0));
     }
 }
