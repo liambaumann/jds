@@ -3,33 +3,59 @@ public class SinglyLinkedList<T> {
     private int size;
 
     public SinglyLinkedList() {
-        this.head = null;
-        this.size = 0;
+        head = null;
+        size = 0;
     }
 
     public void addFirst(T t) {
-        if (this.head == null) {
-            this.head = new Node<>(t, null);
+        if (head == null) {
+            head = new Node<>(t, null);
             size++;
             return;
         }
         //if this.head exists already:
-        this.head = new Node<>(t, this.head);
+        head = new Node<>(t, head);
         size++;
     }
 
     public void addLast(T t) {
-        if(this.head == null) {
-            this.head = new Node<>(t,null);
+        if(head == null) {
+            head = new Node<>(t,null);
             size++;
             return;
         }
         //if this.head exists already:
-        Node<T> current = this.head;
+        Node<T> current = head;
         while(current.getNext() != null) {
             current = current.getNext();
         }
         current.setNext(new Node<>(t,null));
+        size++;
+    }
+
+    public boolean delete(T t) {
+        if(head == null) {
+            return false;
+        }
+
+        //Check if head is to be deleted
+        if(head.getData().equals(t)) {
+            head = head.getNext();
+            size--;
+            return true;
+        }
+
+        //any other element to be deleted:
+        Node<T> current = head;
+        while(current.getNext() != null) {
+            if(current.getNext().getData().equals(t)) {
+                current.setNext(current.getNext().getNext());
+                size--;
+                return true;
+            }
+            current = current.getNext();
+        }
+        return false;
     }
 
     public String toString() {
@@ -46,6 +72,10 @@ public class SinglyLinkedList<T> {
             current = current.getNext();
         }
         return s+"]";
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }
 

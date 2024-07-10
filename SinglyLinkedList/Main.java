@@ -8,6 +8,8 @@ public class Main {
         l.addLast(97);
         l.addLast(98);
         l.addLast(99);
+        l.delete(99);
         System.out.println(l);
+        System.out.println(l.getSize());
     }
 }
